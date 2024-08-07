@@ -1,0 +1,683 @@
+/* ESTILOS UNIVERSAIS */
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    color: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* ESTILOS AGRUPADOS INICIO*/
+
+/*links do topo e links do nav */
+.secao-botoes a,
+nav a,
+.secao-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    text-decoration: none;
+}
+
+p,
+ul li,
+ol li,
+label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.texto-marrom {
+    color: #53311186;
+}
+
+.texto-verde {
+    color: #b4f564
+}
+
+nav h2,
+.introducao h4,
+.objetivos h4,
+.secao-controle h4,
+.secao-prevencao h4 {
+    margin-top: 50px;
+    width: 100%;
+
+}
+
+/* seções de fundo verde */
+nav,
+.introducao,
+.secao-info,
+.secao-introducao-ia,
+footer,
+.obj1,
+.obj2,
+.formulario {
+    background: rgb(110 153 57);
+}
+
+nav,
+.secao-descricao,
+.titulo-e-subtitulo,
+.secao-titulos,
+.introducao,
+.secao-introducao-ia,
+.rodape,
+.secao-vertentes,
+.objetivos,
+.secao-controle,
+.secao-prevencao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introducao p,
+.secao-introducao-ia p,
+.objetivos p {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    max-width: 62%;
+    line-height: 32px;
+}
+
+.secao-info,
+.rodape,
+.secao-vertentes,
+.obj2,
+.secao-manejo {
+    padding: 60px 0;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.264)
+}
+
+
+
+/* FIM DOS ESTILOS AGRUPADOS */
+
+/* CABEÇALHO  */
+header {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    opacity: 85%;
+}
+
+#home {
+    background-image: url(../img/fundo-cabeçalho1.jpg);
+}
+
+#agricultura {
+    background-image: url(../img/fundo-cabecalho2.jpg);
+}
+
+#ia-agricultura {
+    background-image: url(../img/fundo-cabecalho3.jpg);
+}
+
+#cultivo {
+    background-image: url(../img/fundo-cabecalho4.jpg);
+}
+
+#repositorio {
+    background-image: url(../img/fundo-cabecalho5.jpg);
+}
+
+#contato {
+    background-image: url(../img/fundo-cabecalho6.jpg);
+
+}
+
+
+
+.secao-cabecalho {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 70%;
+}
+
+/*TOPO*/
+.secao-botoes a {
+    /* width: 55%; */
+    height: 48px;
+    border-radius: 52px;
+    margin: 0 10px;
+}
+
+.menu {
+    background-color: #929090;
+}
+
+.home {
+    background-color: #6E9939;
+}
+
+.secao-botoes a p {
+    width: 100%;
+    height: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.secao-topo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    background-color: rgba(248, 242, 242, 0.445);
+}
+
+.logotipo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logotipo img {
+    width: 96px;
+}
+
+.icone-seta img {
+    width: 42px;
+}
+
+.secao-botoes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* SEÇÃO TÍTULOS */
+
+
+
+h4 {
+    font-size: 22px;
+}
+
+.secao-titulos {
+    height: 100%;
+}
+
+.titulo-e-subtitulo {
+    justify-content: space-between;
+    max-height: 258px;
+    margin: 70px 0 126px 0;
+    padding-top: 50px;
+}
+
+.secao-descricao {
+    justify-content: space-between;
+    height: 30%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+nav {
+    justify-content: center;
+    padding: 10px 0;
+    gap: 52px;
+    /* verde */
+    /* sombra-seção */
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+    width: 100%;
+    height: 45px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 31px;
+    align-self: stretch;
+    margin: 20px 0;
+}
+
+/* fundo marrom */
+.botao-marrom,
+.secao-vertentes,
+.funcionamento-ia {
+    background: rgba(131, 77, 27, 0.915)
+}
+
+.botao-verde {
+    background: #5E8330;
+}
+
+/* FIM MENU DE NAVEGAÇÃO */
+
+/* SEÇÃO INTRODUÇÃO - INICIO */
+
+/* SEÇÃO GALERIA */
+.container-galeria {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 18px;
+    background-color: #5E8330;
+    /* Cor de fundo desejada */
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.229);
+}
+
+.imagem-container {
+    flex: 0 0 300px;
+    scroll-snap-align: end;
+    position: relative;
+}
+
+.imagem-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    z-index: 0;
+}
+
+.imagem {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    opacity: 50%;
+}
+
+/* galeria1 */
+.imagem1 {
+    background-image: url(../img/galeria1\ img1.jpg);
+}
+
+.imagem2 {
+    background-image: url(../img/galeria1\ img2.jpg);
+}
+
+.imagem3 {
+    background-image: url(../img/galeria1\ img3.jpg);
+}
+
+.imagem4 {
+    background-image: url(../img/galeria1\ img4.jpg);
+}
+
+.imagem5 {
+    background-image: url(../img/galeria1\ img5.jpg);
+}
+
+/* galeria2 */
+
+.imagem6 {
+    background-image: url(../img/galeria2\ imagem1.jpg);
+}
+
+.imagem7 {
+    background-image: url(../img/galeria2\ imagem2.jpg);
+}
+
+.imagem8 {
+    background-image: url(../img/galeria2\ imagem3.jpg);
+}
+
+.imagem9 {
+    background-image: url(../img/galeria2\ imagem\ 4.png);
+}
+
+/* galeria3 */
+.imagem10 {
+    background-image: url(../img/galeria3\ imagem\ 1.png);
+}
+
+.imagem11 {
+    background-image: url(../img/galeria3\ imagem2.jpg);
+}
+
+.imagem12 {
+    background-image: url(../img/galeria3\ imagem3.jpg);
+}
+
+.imagem13 {
+    background-image: url(../img/galeria3\ imagem4.jpg);
+}
+
+.imagem14 {
+    background-image: url(../img/galeria3\ imagem\ 5.png);
+}
+
+/* galeria 4 */
+.imagem15 {
+    background-image: url(../img/galeria4\ img1.jpg);
+}
+
+.imagem16 {
+    background-image: url(../img/galeria4\ img2.jpg);
+}
+
+.imagem17 {
+    background-image: url(../img/galeria4\ img3.jpg);
+}
+
+.imagem18 {
+    background-image: url(../img/galeria4\ img4.jpg);
+}
+
+.imagem19 {
+    background-image: url(../img/galeria5\ img1.png);
+}
+
+.imagem20 {
+    background-image: url(../img/galeria5\ img2.jpg);
+}
+
+.imagem21 {
+    background-image: url(../img/galeria5\ img3.jpg);
+}
+
+/* fundo do subtitulo da galeria */
+.content {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 1;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.container-galeria h2 {
+    margin-top: 0;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.292);
+    padding: 0px 0px;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.container-galeria p {
+    margin-top: 20px;
+    /* Define a distância entre h2 e p */
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+    width: 90%;
+    text-shadow: black 2px 2px 20px;
+}
+
+/* ESTILOS GALERIA FIM */
+
+/* SEÇÃO INFO - INICIO */
+.secao-info img {
+    width: 192px;
+}
+
+.secao-info p {
+    width: 36%;
+    line-height: 30px;
+    text-shadow: black 1px 1px 10px;
+}
+
+/* FIM SEÇÃO INFO */
+
+/* SEÇÃO INTRODUÇÃO A IA */
+/* tamanho imagem*/
+
+.objetivos img {
+    width: 138px;
+}
+
+
+.secao-introducao-ia {
+    padding: 40px 0 60px 0;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.317);
+}
+
+/* RODAPE INICIO */
+li {
+    margin-top: 18px;
+    text-align: center;
+    width: 100%;
+
+}
+
+ul,
+ol {
+    margin-bottom: 22px;
+    text-align: center;
+    width: 82%;
+}
+
+ul {
+    margin: 20px auto;
+}
+
+/* RODAPE FIM */
+
+ul {
+    list-style-type: none;
+}
+
+
+.obj2 img {
+    width: 182px;
+    padding: 0px;
+}
+
+.obj3,
+.secao-controle,
+.secao-prevencao {
+    position: relative;
+    padding: 102px 0 22px 0;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+}
+
+.obj3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.307), rgba(0, 0, 0, 0.528)), url(../img/img-secao-objetivos3.jpg);
+
+}
+
+.secao-controle {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.307), rgba(0, 0, 0, 0.528)), url(../img/img-secao-controle.jpg);
+
+}
+
+.secao-prevencao {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.307), rgba(0, 0, 0, 0.528)), url(../img/img-secao-prevencao.jpg);
+}
+
+.objetivos,
+.secao-controle,
+.secao-prevencao {
+    text-shadow: 0.5px 0.5px 10px rgba(0, 0, 0, 0.743)
+}
+
+/* seção vantagens - ias */
+.vantagens-ia h4 {
+    margin-bottom: 48px;
+    ;
+}
+
+/* secao - ia conclusão */
+.ia-conclusao,
+.tecnicas {
+    padding: 58px 0;
+}
+
+/* FORMULÁRIO INICIO */
+form {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin: 22px auto 12px auto;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #8eb95a;
+    /* cor dos campos */
+    border-radius: 8px;
+}
+
+input[type="submit"] {
+    background-color: #995A1F;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+/* subtitulo formulário */
+.formulario h4 {
+    margin-top: 42px;
+}
+
+/* Breakpoint para Celulares de até 400px*/
+@media only screen and (max-width: 400px) {
+    .topo-ia img {
+        display: none;
+    }
+
+    .topo-ia {
+        justify-content: end;
+    }
+
+    .obj1 img{
+        width: 138px;
+    }
+    .introducao img{
+        width: 50px;
+    }
+}
+
+
+/* Breakpoint para Celulares */
+@media only screen and (max-width: 522px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    p,
+    ul li,
+    ol li,
+    label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .subtitulo p {
+        font-size: 16px;
+
+    }
+
+    .logotipo img {
+        width: 66px;
+    }
+
+    .secao-topo a p {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .secao-botoes a {
+        padding: 6px;
+    }
+
+    .secao-info p {
+        width: 42%;
+        line-height: 30px;
+        text-shadow: black 1px 1px 10px;
+
+        .objetivos img {
+            width: 138px;
+        }
+        
+        .objetivos img {
+            width: 138px;
+        }
+    }
+
+    /* Breakpoint para Tablets */
+    @media only screen and (min-width: 481px) and (max-width: 706px) {
+        h1 {
+            font-size: 28px;
+        }
+
+        h2 {
+            font-size: 22px
+        }
+    
+        .objetivos img {
+            width: 138px;
+        }
+    }
+
+    /* Breakpoint para Desktop */
+    @media only screen and (min-width: 769px) {
+        h1 {
+            font-size: 32px;
+            margin-bottom: 72px;
+        }
+
+        h2 {
+            font-size: 28px;
+            width: 70%;
+        }
+        
+    }
+}
+
+/* .obj2 img {
+    width: 182px;
+    padding: 0px;
+} */

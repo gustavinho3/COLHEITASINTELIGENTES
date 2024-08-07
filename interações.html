@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Correspondência sobre Agricultura</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8f0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #e0f7fa;
+            padding: 10px;
+        }
+
+        .secao-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #80deea;
+            padding: 10px;
+        }
+
+        .secao-topo .logotipo img {
+            width: 100px;
+        }
+
+        .secao-botoes {
+            display: flex;
+            gap: 10px;
+        }
+
+        .secao-botoes a {
+            background-color: #00796b;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .secao-botoes a.botao-marrom {
+            background-color: #d32f2f;
+        }
+
+        .secao-botoes a:hover {
+            background-color: #004d40;
+        }
+
+        .intro, .game-container, .description, .matching-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .intro {
+            background-color: #330996;
+            color: #fff;
+        }
+
+        .intro button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .intro button:hover {
+            background-color: #004d40;
+        }
+
+        .description.hidden, .game-container.hidden, .matching-game.hidden {
+            display: none;
+        }
+
+        .description {
+            background-color: #090d0e;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(4, 150px);
+            gap: 10px;
+            background-color: #e9c46a;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .card {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            background-color: #ffffff;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card img, .card p {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            transition: opacity 0.3s;
+        }
+
+        .card img {
+            opacity: 1;
+        }
+
+        .card p {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #b2dfdb;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .card.flipped img {
+            opacity: 0;
+        }
+
+        .card.flipped p {
+            opacity: 1;
+        }
+
+        .matching-game {
+            background-color: #e9c46a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .data-list, .description-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .data-item, .description-item {
+            background-color: #fff;
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            width: calc(25% - 10px);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .data-item {
+            background-color: #fefae0;
+        }
+
+        .description-item {
+            background-color: #d9ed92;
+        }
+
+        .description-item.filled {
+            background-color: #a8dadc;
+        }
+
+        .data-item.dragging {
+            opacity: 0.5;
+        }
+
+        .description-item.over {
+            border-color: #2a9d8f;
+            background-color: #b9fbc0;
+        }
+    </style>
+</head>
+<body>
+    <header id="repositorio">
+        <section class="secao-cabecalho">
+            <div class="secao-topo">
+                <div class="logotipo">
+                    <img src="img/LOGO.png" alt="logotipo">
+                </div>
+                <div class="secao-botoes">
+                    <a class="botao menu" href="#menu">
+                        <p>MENU</p>
+                    </a>
+                    <a class="botao home" href="#interações">
+                        <p>JOGOS</p>
+                    </a>
+                    <a class="botao-marrom" href="index.html">
+                        <p>Voltar para o início</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <!-- Introdução -->
+    <div class="intro" id="intro">
+        <h1>Bem-vindo ao Jogo de Correspondência sobre Agricultura!</h1>
+        <p>Este jogo é uma forma divertida de aprender sobre importantes aspectos da agricultura.</p>
+        <p>Clique em "Iniciar Jogo" para começar a encontrar correspondências entre imagens e descrições.</p>
+        <button onclick="startGame()">Iniciar Jogo</button>
+    </div>
+
+    <!-- Descrição do Jogo -->
+    <div class="description hidden" id="description">
+        <h2>Combine as Imagens com as Descrições</h2>
+        <p>Clique nas imagens para revelá-las e tente encontrar as correspondências com as descrições.</p>
+    </div>
+
+    <!-- Contêiner do Jogo -->
+    <div class="game-container hidden" id="gameContainer">
+        <!-- Imagens e descrições -->
+        <div class="card" data-id="2">
+            <img src="img jogos/segalimentar.jpg" alt="Segurança Alimentar">
+            <p>Segurança Alimentar</p>
+        </div>
+        <div class="card" data-id="3">
+            <img src="img jogos/consrecnaturais.jpg" alt="Conservação dos Recursos Naturais">
+            <p>Conservação dos Recursos Naturais</p>
+        </div>
+        <div class="card" data-id="1">
+            <img src="img jogos/pres.meioambiente.jpg" alt="Preservação do Meio Ambiente">
+            <p>Preservação do Meio Ambiente</p>
+        </div>
+        <div class="card" data-id="5">
+            <img src="img jogos/ccombmudclima.jpg" alt="Combate às Mudanças Climáticas">
+            <p>Combate às Mudanças Climáticas</p>
+        </div>
+        <div class="card" data-id="4">
+            <img src="img jogos/benagriccomunidade.jpg" alt="Benefícios para Agricultura em Comunidade">
+            <p>Benefícios para Agricultura em Comunidade</p>
+        </div>
+        <div class="card" data-id="6">
+            <img src="img jogos/tecagro.jpg" alt="Uso de Tecnologia na Agricultura">
+            <p>Uso de Tecnologia na Agricultura</p>
+        </div>
+        <div class="card" data-id="8">
+            <img src="img jogos/protpragas.jpg" alt="Proteção de Culturas contra Pragas">
+            <p>Proteção de Culturas contra Pragas</p>
+        </div>
+        <div class="card" data-id="7">
+            <img src="img jogos/sustavel.jpg" alt="Métodos de Cultivo Sustentáveis">
+            <p>Métodos de Cultivo Sustentáveis</p>
+        </div>
+        <!-- Cartões duplicados para correspondência -->
+        <div class="card" data-id="1">
+            <p>Preservação do Meio Ambiente</p>
+        </div>
+        <div class="card" data-id="2">
+            <p>Segurança Alimentar</p>
+        </div>
+        <div class="card" data-id="3">
+            <p>Conservação dos Recursos Naturais</p>
+        </div>
+        <div class="card" data-id="4">
+            <p>Benefícios para Agricultura em Comunidade</p>
+        </div>
+        <div class="card" data-id="5">
+            <p>Combate às Mudanças Climáticas</p>
+        </div>
+        <div class="card" data-id="6">
+            <p>Uso de Tecnologia na Agricultura</p>
+        </div>
+        <div class="card" data-id="7">
+            <p>Métodos de Cultivo Sustentáveis</p>
+        </div>
+        <div class="card" data-id="8">
+            <p>Proteção de Culturas contra Pragas</p>
+        </div>
+    </div>
+
+    <!-- Introdução para o Jogo de Correspondência de Dados -->
+    <div class="intro hidden" id="intro-matching">
+        <h1>Bem-vindo ao Jogo de Correspondência de Dados sobre Agricultura!</h1>
+        <p>Arraste e solte cada item na descrição correta para aprender mais sobre a agricultura.</p>
+        <button onclick="startMatchingGame()">Iniciar Jogo de Correspondência de Dados</button>
+    </div>
+
+    <!-- Jogo de Correspondência de Dados -->
+    <div class="matching-game hidden" id="matchingGame">
+        <div class="data-list" id="dataList">
+            <div class="data-item" draggable="true" data-id="1">Uso de Tecnologia na Agricultura</div>
+            <div class="data-item" draggable="true" data-id="2">Métodos de Cultivo Sustentáveis</div>
+            <div class="data-item" draggable="true" data-id="3">Preservação do Meio Ambiente</div>
+            <div class="data-item" draggable="true" data-id="4">Proteção de Culturas contra Pragas</div>
+            <div class="data-item" draggable="true" data-id="5">Segurança Alimentar</div>
+            <div class="data-item" draggable="true" data-id="6">Benefícios para Agricultura em Comunidade</div>
+            <div class="data-item" draggable="true" data-id="7">Conservação dos Recursos Naturais</div>
+            <div class="data-item" draggable="true" data-id="8">Combate às Mudanças Climáticas</div>
+        </div>
+        <div class="description-list" id="descriptionList">
+            <div class="description-item" data-id="1">Uso de Tecnologia na Agricultura</div>
+            <div class="description-item" data-id="2">Métodos de Cultivo Sustentáveis</div>
+            <div class="description-item" data-id="3">Preservação do Meio Ambiente</div>
+            <div class="description-item" data-id="4">Proteção de Culturas contra Pragas</div>
+            <div class="description-item" data-id="5">Segurança Alimentar</div>
+            <div class="description-item" data-id="6">Benefícios para Agricultura em Comunidade</div>
+            <div class="description-item" data-id="7">Conservação dos Recursos Naturais</div>
+            <div class="description-item" data-id="8">Combate às Mudanças Climáticas</div>
+        </div>
+    </div>
+
+    <script>
+        // Jogo de Correspondência de Imagens
+        const intro = document.getElementById('intro');
+        const description = document.getElementById('description');
+        const gameContainer = document.getElementById('gameContainer');
+        const cards = document.querySelectorAll('.card');
+        let firstCard = null;
+        let secondCard = null;
+        let matchedPairs = 0;
+
+        function startGame() {
+            intro.classList.add('hidden');
+            description.classList.remove('hidden');
+            gameContainer.classList.remove('hidden');
+        }
+
+        function flipCard(card) {
+            if (card === firstCard || card.classList.contains('flipped')) return;
+
+            card.classList.add('flipped');
+
+            if (!firstCard) {
+                firstCard = card;
+                firstCard.querySelector('p').style.opacity = 1;
+            } else {
+                secondCard = card;
+                secondCard.querySelector('p').style.opacity = 1;
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            if (firstCard.dataset.id === secondCard.dataset.id) {
+                matchedPairs++;
+                if (matchedPairs === 8) {
+                    setTimeout(() => {
+                        alert('Parabéns! Você encontrou todas as correspondências!');
+                    }, 500);
+                }
+                resetCards();
+            } else {
+                setTimeout(() => {
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped');
+                    firstCard.querySelector('p').style.opacity = 0;
+                    secondCard.querySelector('p').style.opacity = 0;
+                    resetCards();
+                }, 1000);
+            }
+        }
+
+        function resetCards() {
+            firstCard = null;
+            secondCard = null;
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => flipCard(card));
+        });
+
+        // Jogo de Correspondência de Dados
+        const introMatching = document.getElementById('intro-matching');
+        const matchingGame = document.getElementById('matchingGame');
+        const dataItems = document.querySelectorAll('.data-item');
+        const descriptionItems = document.querySelectorAll('.description-item');
+
+        function startMatchingGame() {
+            introMatching.classList.add('hidden');
+            matchingGame.classList.remove('hidden');
+        }
+
+        dataItems.forEach(item => {
+            item.addEventListener('dragstart', () => {
+                item.classList.add('dragging');
+            });
+
+            item.addEventListener('dragend', () => {
+                item.classList.remove('dragging');
+            });
+        });
+
+        descriptionItems.forEach(item => {
+            item.addEventListener('dragover', (event) => {
+                event.preventDefault();
+                item.classList.add('over');
+            });
+
+            item.addEventListener('dragleave', () => {
+                item.classList.remove('over');
+            });
+
+            item.addEventListener('drop', (event) => {
+                event.preventDefault();
+                item.classList.remove('over');
+
+                const draggedItem = document.querySelector('.data-item.dragging');
+                if (draggedItem) {
+                    if (draggedItem.dataset.id === item.dataset.id) {
+                        item.textContent = draggedItem.textContent;
+                        item.classList.add('filled');
+                        draggedItem.remove();
+                        if (document.querySelectorAll('.data-item').length === 0) {
+                            setTimeout(() => {
+                                alert('Parabéns! Você completou o jogo!');
+                            }, 500);
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

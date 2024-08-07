@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="estilos/styles.css">    
+</head>
+
+<body>
+    <header id="contato">
+        <section class="secao-cabecalho">
+            <div class="secao-topo fundo-cinza">
+                <div class="logotipo">
+                    <img src="img/LOGO.png" alt="logotipo">
+                </div>
+                <div class="secao-botoes">
+                    <a class="botao menu" href="#menu">
+                        <p>MENU</p>
+                    </a>
+                    <a class="botao home" href="#contato">
+                        <p>CONTATO</p>
+                    </a>
+                    <a class="botao-marrom" href="index.html">
+                        <p>Voltar para o início</p>
+                    </a>
+                </div>
+            </div>
+            <div class="secao-titulos">
+                <div class="titulo-e-subtitulo">
+                    <h1>ENTRE EM CONTATO CONOSCO</h1>                    
+                </div>
+                <div class="secao-descricao">
+                    <div class="subtitulo fundo-cinza">
+                        <p>Envie uma mensagem preenchendo o formulário abaixo:</p>
+                    </div>
+                    <div class="icone-seta">
+                        <img src="icons\icone-seta.svg" alt="icone de seta para baixo">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <main class="formulario">
+        <nav id="menu">   <!--MENU DE NAVEGAÇÃO-->
+            <h2>MENU DE NAVEGAÇÃO</h2>
+
+            <div class="secao-menu">
+              
+               
+                <a class="botao-marrom" href="cultivo.html">
+                    <p>Cultivos Eficientes</p>
+                </a>
+                <a class="botao-verde" href="repositorio.html">
+                    <p>Repositório</p>
+                </a>
+                <a class="botao-marrom" href="contato.html">
+                    <p>Entre em Contato</p>
+                </a>
+            </div>
+            <div class="icone-seta">
+                <img src="icons\icone-seta.svg" alt="icone de seta para baixo">
+            </div>
+        </nav>
+        <h4>PREENCHA O FORMULÁRIO:</h4>
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+    
+            <label for="celular">Celular:</label>
+            <input type="text" id="celular" name="celular" required>
+    
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" required>
+    
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required>
+    
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" required>
+    
+            <label for="assunto">Assunto:</label>
+            <input type="text" id="assunto" name="assunto" required>
+    
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+    
+            <label for="sugestoes">Sugestões:</label>
+            <textarea id="sugestoes" name="sugestoes" rows="4"></textarea>
+    
+            <label for="novidades">Deseja receber nossas novidades?</label>
+            <input type="checkbox" id="sim" name="novidades" value="sim">
+            <label for="sim">Sim</label>
+            <input type="checkbox" id="nao" name="novidades" value="nao">
+            <label for="nao">Não</label>
+    
+            <input class="input" type="submit" value="Enviar">
+        </form>
+    </main>
+    <footer>
+        <div class="rodape">
+            <p>NOSSA EQUIPE</p>
+            <ul class="lista-equipe">
+                <li>Aluno: Gustavo Buraicko</li>
+                <li>Professor: Edivaldo Ramos Batista </li>
+                
+            </ul>
+            <div class="logotipo">
+                <img src="img/LOGO.png" alt="logotipo">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
